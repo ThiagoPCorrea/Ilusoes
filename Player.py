@@ -8,7 +8,7 @@ class Player:
         self.name = name
         self.facing = "south"
         self.health = 100
-        self.sprite = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagensfilho.png")
+        self.sprite = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/filho.png")
         size = self.sprite.get_size()
         self.width = size[0]
         self.height = size[1]
