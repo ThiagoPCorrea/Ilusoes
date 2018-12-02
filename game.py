@@ -21,7 +21,7 @@ display_height = 720
 #display_height = 600
 
 display_size = display_height * display_width
-gameDisplay = pygame.display.set_mode((display_width,display_height),pygame.FULLSCREEN) 
+gameDisplay = pygame.display.set_mode((display_width,display_height)) 
 pygame.display.set_caption('Ilusões') #nome do game na parte superior da tela
 
 #globais
@@ -65,29 +65,29 @@ char_height = 48
 #Imagens
 
 #run
-crashimg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/crash.jpg')
-hole = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/run/hole1.png')
+crashimg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/crash.jpg')
+hole = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/hole1.png')
 
-charimg0 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/sprites cortadas/charcut/charcut_0.png')
-charimg1 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/sprites cortadas/charcut/charcut_1.png')
-charimg2 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/sprites cortadas/charcut/charcut_2.png')
+charimg0 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/charcut_0.png')
+charimg1 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/charcut_1.png')
+charimg2 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/charcut_2.png')
 
 charimg = []
 charimg.append(charimg0)
 charimg.append(charimg1)
 charimg.append(charimg2)
 
-runbg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/run/Cave.jpg')
+runbg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Cave.jpg')
 
 #menuimgs
-backImg0 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_00.png')
-backImg1 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_01.png')
-backImg2 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_02.png')
-backImg3 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_03.png')
-backImg5 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_05.png')
-backImg6 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_06.png')
-backImg8 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_08.png')
-backImg11 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/sprite_11.png')
+backImg0 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu1.png')
+backImg1 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu2.png')
+backImg2 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu3.png')
+backImg3 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu4.png')
+backImg5 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu5.png')
+backImg6 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu6.png')
+backImg8 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu7.png')
+backImg11 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu8.png')
 backImg = []
 backImg.append(backImg0)
 backImg.append(backImg1)
@@ -104,26 +104,26 @@ backImg.append(backImg3)
 
 
 #unlock puzzle
-woodbkgnd = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/wood.jpg')
-keyimg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/key2.png')
-goldblock = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/blocodourado.jpg')
-lockbg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lockbg2.png')
-lockend = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lockend2.png')
+woodbkgnd = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/wood.jpg')
+keyimg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/key2.png')
+goldblock = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/blocodourado.jpg')
+lockbg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lockbg2.png')
+lockend = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lockend2.png')
 
-winimg0 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_00.png')
-winimg1 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_01.png')
-winimg2 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_02.png')
-winimg3 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_03.png')
-winimg4 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_04.png')
-winimg5 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_05.png')
-winimg6 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_06.png')
-winimg7 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_07.png')
-winimg8 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_08.png')
-winimg9 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_09.png')
-winimg10 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_10.png')
-winimg11 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_11.png')
-winimg12 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_12.png')
-winimg13 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_13.png')
+winimg0 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_00.png')
+winimg1 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_01.png')
+winimg2 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_02.png')
+winimg3 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_03.png')
+winimg4 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_04.png')
+winimg5 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_05.png')
+winimg6 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_06.png')
+winimg7 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_07.png')
+winimg8 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_08.png')
+winimg9 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_09.png')
+winimg10 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_10.png')
+winimg11 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_11.png')
+winimg12 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_12.png')
+winimg13 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_13.png')
 winimg = []
 
 winimg.append(winimg0)
@@ -143,14 +143,14 @@ winimg.append(winimg13)
 
 
 #Sons
-#crash_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sounds/Car-crash-sound-effect.ogg")
-#rain_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sounds/The-sound-of-rain.ogg")
-#menu_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sounds/Soft-piano-music-piano-zen.ogg")
-#game_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sounds/Electro-punk-action-background-music.ogg")
-#pygame.mixer.music.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sounds/Electro-punk-action-background-music.ogg")
+#crash_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/GitHub/Ilusoes/Sounds/Car-crash-sound-effect.ogg")
+#rain_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/GitHub/Ilusoes/Sounds/The-sound-of-rain.ogg")
+#menu_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/GitHub/Ilusoes/Sounds/Soft-piano-music-piano-zen.ogg")
+#game_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/GitHub/Ilusoes/Sounds/Electro-punk-action-background-music.ogg")
+#pygame.mixer.music.load("C:/Users/thiag/Documents/GitHub/Ilusoes/Sounds/Electro-punk-action-background-music.ogg")
 
 #icone
-pygame.display.set_icon(pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/carIcon.png'))
+pygame.display.set_icon(pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/GameIcon/carIcon.png'))
 
 
 ###Funções###

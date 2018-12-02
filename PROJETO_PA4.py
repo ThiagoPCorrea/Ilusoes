@@ -7,23 +7,24 @@ from Mapa_engine import *
 from Script.NPC import *
 from Player import *
 from meloonatic_gui import *
-#from game import *
-from Script.funcionalidades import *
-from Script.run import *
-from Script.Unlock import *
+from game import *
+#from Script.funcionalidades import *
+#from Script.run import RunPuzzle
+#from Script.Unlock import unlock
+
 
 pygame.init()
 
 cSeg = 0
 cFrame = 0
 FPS = 0
-vida0 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_00.png")
-vida1 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_01.png")
-vida2 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_02.png")
-vida3 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_03.png")
-vida4 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_04.png")
-vida5 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_05.png")
-vida6 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/Brain/brain_06.png")
+vida0 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_00.png")
+vida1 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_01.png")
+vida2 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_02.png")
+vida3 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_03.png")
+vida4 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_04.png")
+vida5 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_05.png")
+vida6 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/brain_06.png")
 vida = []
 
 vida.append(vida0)
@@ -40,23 +41,23 @@ vida.append(vida6)
 
 
 
-terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/Sala.map")
+terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
 
 fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 20)
 clock = pygame.time.Clock()
-#sky = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/sky.png")
+#sky = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/sky.png")
 #Sky = pygame.Surface(sky.get_size(), pygame.HWSURFACE)
 #Sky.blit(sky,(0, 0))
 #del sky
 
-logo_img_temp = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu1.png")
-logo_img_temp1 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu2.png")
-logo_img_temp2 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu3.png")
-logo_img_temp3 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu4.png")
-logo_img_temp4 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu5.png")
-logo_img_temp5 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu6.png")
-logo_img_temp6 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu7.png")
-logo_img_temp7 = pygame.image.load("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/graphics/menu8.png")
+logo_img_temp = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu1.png")
+logo_img_temp1 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu2.png")
+logo_img_temp2 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu3.png")
+logo_img_temp3 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu4.png")
+logo_img_temp4 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu5.png")
+logo_img_temp5 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu6.png")
+logo_img_temp6 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu7.png")
+logo_img_temp7 = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/BackGrounds/menu8.png")
 backImg = []
 backImg.append(logo_img_temp)
 backImg.append(logo_img_temp1)
@@ -205,13 +206,13 @@ while Aberto:
                 Globals.camera_y += 300 * deltatime
 
             if Tiles.Acao_list((round(player_x), math.floor(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/QuartoO.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/QuartoO.map")
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "east"
 
             if Tiles.Descer((round(player_x), math.floor(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/Sala.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
@@ -236,13 +237,13 @@ while Aberto:
                 Globals.camera_y -= 300 * deltatime
 
             if Tiles.Acao_list((round(player_x), math.ceil(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/QuartoO.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/QuartoO.map")
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "west"
 
             if Tiles.Descer((round(player_x), math.ceil(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/Sala.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
@@ -264,13 +265,13 @@ while Aberto:
                 Globals.camera_x += 300 * deltatime
 
             if Tiles.Acao_list((math.floor(player_x), round(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/QuartoO.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/QuartoO.map")
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "east"
             
             if Tiles.Descer((math.floor(player_x), round(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/Sala.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
@@ -293,13 +294,13 @@ while Aberto:
                 Globals.camera_x -= 300 * deltatime
 
             if Tiles.Acao_list((math.ceil(player_x), round(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/QuartoO.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/QuartoO.map")
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "east"
             
             if Tiles.Descer((math.ceil(player_x), round(player_y))):
-                terrain = Map_engine.load_map("C:/Users/thiag/Documents/Thiago/Projeto PA4/MardoCode/PA4_Jogo/Mapa/Sala.map")
+                terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"

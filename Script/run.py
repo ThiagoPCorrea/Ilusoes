@@ -2,25 +2,27 @@ import pygame
 import os
 import time
 import random
+import sys
 from funcionalidades import *
 
-crashimg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/crash.jpg')
-hole = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/run/hole1.png')
+crashimg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/crash.jpg')
+hole = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/hole1.png')
 
-charimg0 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/sprites cortadas/charcut/charcut_0.png')
-charimg1 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/sprites cortadas/charcut/charcut_1.png')
-charimg2 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/sprites cortadas/charcut/charcut_2.png')
+charimg0 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/charcut_0.png')
+charimg1 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/charcut_1.png')
+charimg2 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/charcut_2.png')
 
 charimg = []
 charimg.append(charimg0)
 charimg.append(charimg1)
 charimg.append(charimg2)
-
+char_height = 48
+char_width = 48
 crashimg = scale(crashimg,display_width,display_height)
 char_height = int(char_height*(((display_height/600)+(display_width/800))/2))
 char_width = int(char_width*((((display_height/600)+(display_width/800)))/2))
 
-runbg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/run/Cave.jpg')
+runbg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Cave.jpg')
 
 def RunPuzzle():
     global pause

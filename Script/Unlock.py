@@ -2,8 +2,8 @@ import pygame
 import os
 import time
 import random
+import funcionalidades
 from funcionalidades import *
-
 
 pygame.init()
 
@@ -14,28 +14,28 @@ blockheight = int(display_height*0.14)
 #unlock position(1x1):
 posX = display_width*0.1
 posY = display_height*0.14
-woodbkgnd = pygame.image.load('../graphics/Puzzles/wood.jpg')
-woodbkgnd = pygame.image.load(os.path.join('../graphics/Puzzles','wood.jpg'))
+woodbkgnd = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/wood.jpg')
+#woodbkgnd = pygame.image.load(os.path.join('../graphics/Puzzles','wood.jpg'))
 woodbkgnd = scale(woodbkgnd,display_width,display_height)
-keyimg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/key2.png')
-goldblock = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/blocodourado.jpg')
-lockbg = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lockbg2.png')
-lockend = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lockend2.png')
+keyimg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/key2.png')
+goldblock = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/blocodourado.jpg')
+lockbg = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lockbg2.png')
+lockend = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lockend2.png')
 
-winimg0 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_00.png')
-winimg1 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_01.png')
-winimg2 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_02.png')
-winimg3 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_03.png')
-winimg4 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_04.png')
-winimg5 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_05.png')
-winimg6 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_06.png')
-winimg7 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_07.png')
-winimg8 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_08.png')
-winimg9 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_09.png')
-winimg10 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_10.png')
-winimg11 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_11.png')
-winimg12 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_12.png')
-winimg13 = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Sprites/lock/lock gif/lock_13.png')
+winimg0 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_00.png')
+winimg1 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_01.png')
+winimg2 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_02.png')
+winimg3 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_03.png')
+winimg4 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_04.png')
+winimg5 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_05.png')
+winimg6 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_06.png')
+winimg7 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_07.png')
+winimg8 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_08.png')
+winimg9 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_09.png')
+winimg10 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_10.png')
+winimg11 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_11.png')
+winimg12 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_12.png')
+winimg13 = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/lock gif/lock_13.png')
 winimg = []
 
 winimg.append(winimg0)
@@ -52,6 +52,7 @@ winimg.append(winimg10)
 winimg.append(winimg11)
 winimg.append(winimg12)
 winimg.append(winimg13)
+
 
 
 def unlock():
