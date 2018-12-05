@@ -7,12 +7,12 @@ class Tiles:
     Size = 32
 
     Acao = []
-    Acao_list2 = ["70"]
+    Acao_list2 = ["106", "70"]
 
     Blocked = []
     Blocked_Types = ["2", "3", "4", "5", "6", "10", "11", "14", "15", "16", "17", "18", "22", "23", "24", "32", "33", "34", "35"
     , "36", "37", "38", "39", "41", "44", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "60", "61", "62", "71", "72", "65", "64", "78", "79", "80", "81", "88", "89", "90"
-    , "93", "94", "95", "96","73","74"]
+    , "93", "94", "95", "96", "107", "108", "111", "112", "113", "114", "115", "116", "117", "118", "119", "120", "121", "122", "123", "124", "125", "126", "127", "128", "129", "130", "131", "132", "133"]
 
     Descida = []
     Descida2 = ["77"]
@@ -22,6 +22,35 @@ class Tiles:
 
     run = []
     runevent = ["82","83","91","92"]
+
+    entrar = []
+    entrou = ["73","74"]
+
+    sair = []
+    saiu = ["135"]
+
+    password = []
+    passwordEnter = ["134"]
+
+    def left(pos):    
+        if list(pos) in Tiles.sair:
+            return True
+        else:
+            return False
+
+
+    def enter(pos):    
+        if list(pos) in Tiles.entrar:
+            return True
+        else:
+            return False
+
+
+    def senha(pos):    
+        if list(pos) in Tiles.password:
+            return True
+        else:
+            return False
 
     def destrancar(pos):    
         if list(pos) in Tiles.chest:
@@ -62,7 +91,7 @@ class Tiles:
         surface.blit(bitmap, (0, 0))
         return surface
     
-    Grass = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Chao/grass.png", Size)
+    Grass = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Rua/sprites34_017.png", Size)
 
     
 
@@ -221,10 +250,53 @@ class Tiles:
 
     Bau = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Objetos/sprites21_00.png", Size)
 
+    #Rua
+    Teto1 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Paredes_Teto/sprites15_082.png", Size)
+    Teto2 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Paredes_Teto/sprites15_098.png", Size)
+
+    Piso = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Chao/sprites16_113.png", Size)
+
+    Rua = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Chao/sprites16_083.png", Size)
+
+    Tijolo = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Paredes_Teto/sprites15_050.png", Size)
+
+    TetoPreto = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Acabamentos/sprites18_071.png", Size)
+    TetoPreto2 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Acabamentos/sprites18_074.png", Size)
+    TetoPreto3 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Acabamentos/sprites18_073.png", Size)
+
+    Cerca = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Objetos/sprites20_200.png", Size)
+    Cerca2 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Objetos/sprites20_201.png", Size)
+    Cerca3 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Objetos/sprites20_202.png", Size)
+    Cerca4 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Objetos/sprites20_203.png", Size)
+
+    Cimento = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Paredes_Teto/sprites15_049.png", Size)
+
+    TetoPreto4 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_056.png", Size)
+    TetoPreto5 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_057.png", Size)
+    TetoPreto6 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_058.png", Size)
+    TetoPreto7 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_072.png", Size)
+    TetoPreto8 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_073.png", Size)
+    TetoPreto9 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_074.png", Size)
+    TetoPreto10 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_088.png", Size)
+    TetoPreto11 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_089.png", Size)
+    TetoPreto12 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Teto/sprites38_090.png", Size)
+
+    Arvore = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Arvore/sprites39_087.png", Size)
+    Arvore1 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Arvore/sprites39_103.png", Size)
+    Arvore2 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Arvore/sprites39_109.png", Size)
+    Arvore3 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Arvore/sprites39_135.png", Size)
+    Arvore4 = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Arvore/sprites39_151.png", Size)
+
+    Livro = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Objetos/sprites20_132.png", Size)
+
+    Saida = Load_Texture("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Rua/sprites34_006.png", Size)
+
 
     Texture_Tags = {"1": Grass, "2": ParedeMad2, "3": ParedeMad3, "4": ParedeMad4, "5": Armario1, "6": Armario2, "7": Quadrolongo1, "8": Quadrolongo2, "9": ChaoMad, "10": ParedeMad1, "11": ParedeMad5, "12": Sofa1, "13": Sofa2, "14": Mesa1, "15": Mesa2, "16": Mesa3, "17": Lareira1, "18": Lareira2, "19": Janela1, "20": Janela2
     , "21": Prateleira1, "22": Estante1, "23": Estante2, "24": Mesa4, "25": Relogio1, "26": Relogio2, "27": Prateleira2, "28": Sofa3, "29": Sofa4, "30": Sofa5, "31": Sofa6, "32": Geladeira1, "33": Geladeira2, "34": Estante3, "35": Estante4, "36": Fogao, "37": Pia1, "38": Pia2, "39": Mesa5, "40": Banquinho,"41": Cenoura, "42": Prateleira3
     , "43": ChaoCoz, "44": Pia3, "45": Comida, "46": Piano1, "47": Piano2, "48": Piano3, "49": Piano4, "50": Piano5, "51": Piano6, "52": Lareira3, "53": Lareira4, "54": Lareira5, "55": Lareira6, "56": Lareira7, "57": Lareira8, "58": Espelho1, "59": Espelho2, "60": Vaso1, "61": Vaso2, "62": Vaso3,
     "63": Banquinho2, "64": Estatua1, "65": Estatua2, "66": Tapete1, "67": Tapete2, "68": Tapete3, "69": Tapete4, "70": Escada, "71": Vaso4, "72": Vaso5, "73": Porta1, "74": Porta2, "75": Janela3, "76": Janela4, "77": EscadaD, "78": Estante5, "79": Estante6, "80": Estante7, "81": Estante8,
     "82": Cama1, "83": Cama2, "84": Cadeira, "85": Relogio3, "86": Telefone, "87": Pc, "88": Caveira1, "89": Caveira2, "90": Ursinho, "91": Cama3, "92": Cama4, "93": Roupa1, "94": Roupa2, "95": Roupa3, "96": Pintar, "97": Tapete5, "98": Tapete6, "99": Tapete7, "100": Tapete8, "101": Tapete9, "102": Tapete10, "103": Tapete11, "104": Tapete12, "105": Tapete13
-    , "106": Bau}
+    , "106": Bau, "107": Teto1, "108": Teto2, "109": Piso, "110": Rua, "111": Tijolo, "112": TetoPreto, "113": TetoPreto2, "114": TetoPreto3, "115": Cerca, "116": Cerca2, "117": Cerca3,
+    "118": Cerca4, "119": Cimento, "120": TetoPreto4, "121": TetoPreto5, "122": TetoPreto6, "123": TetoPreto7, "124": TetoPreto8, "125": TetoPreto9, "126": TetoPreto10,"127": TetoPreto11, "128": TetoPreto12,
+    "129": Arvore, "130": Arvore1, "131": Arvore2, "132": Arvore3, "133": Arvore4, "134": Livro, "135": Saida}

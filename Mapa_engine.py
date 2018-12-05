@@ -24,6 +24,9 @@ class Map_engine:
         Tiles.Descida[:] = []
         Tiles.chest[:] = []
         Tiles.run[:] = []
+        Tiles.entrar[:] = []
+        Tiles.sair[:] = []
+        Tiles.password[:] = []
 
         for tile in range(len(map_data)):
             map_data[tile] = map_data[tile].replace("\n", "")
@@ -54,5 +57,11 @@ class Map_engine:
                 Tiles.run.append(tile[0])
             if tile[1] in Tiles.chestevet:
                 Tiles.chest.append(tile[0])
+            if tile[1] in Tiles.entrou:
+                Tiles.entrar.append(tile[0])
+            if tile[1] in Tiles.saiu:
+                Tiles.sair.append(tile[0])
+            if tile[1] in Tiles.passwordEnter:
+                Tiles.password.append(tile[0])
         return terrain
 

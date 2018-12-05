@@ -141,6 +141,28 @@ winimg.append(winimg11)
 winimg.append(winimg12)
 winimg.append(winimg13)
 
+#PassWord Button
+simbol1Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button1Bright.png')
+simbol1Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button1Dark.png')
+
+simbol2Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button2Bright.png')
+simbol2Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button2Dark.png')
+
+simbol3Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button3Bright.png')
+simbol3Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button3Dark.png')
+
+simbol4Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button4Bright.png')
+simbol4Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button4Dark.png')
+
+simbolBox = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/SimbolBox.png')
+answerBox = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/SimbolBox.png')
+answerRound = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/SimbolBox.png')
+
+checkButtonBright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/checkblockBright.jpg')
+resetButtonBright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/resetblockBright.jpg')
+checkButtonDark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/checkblockDark.jpg')
+resetButtonDark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/resetblockDark.jpg')
+
 
 #Sons
 #crash_sound = pygame.mixer.Sound("C:/Users/thiag/Documents/GitHub/Ilusoes/Sounds/Car-crash-sound-effect.ogg")
@@ -210,6 +232,18 @@ def sair():
     gameExit = True
     ruwin = False
 
+def imageButton(x,y,width,height,OutImage,OverImage,Value = None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    OutImage = scale(OutImage,width,height)
+    OverImage = scale(OverImage,width,height)
+    if x+width > mouse[0] > x and y+height > mouse[1] > y:
+        gameDisplay.blit(OverImage,(x,y))
+        if click[0] == 1 and Value != None and buttonDelay == 0:
+            return Value
+    else:
+       gameDisplay.blit(OutImage,(x,y))
+
 
 
 
@@ -222,6 +256,9 @@ char_height = int(char_height*(((display_height/600)+(display_width/800))/2))
 char_width = int(char_width*((((display_height/600)+(display_width/800)))/2))
 #carImg = scale(carImg,car_width,car_height)
 woodbkgnd = scale(woodbkgnd,display_width,display_height)
+#PassWord
+simbolBox = scale(simbolBox,60,60)
+answerBox = scale(answerBox,int(display_width*0.90),int(display_height*0.6))
 
 def button(msg,x,y,width,height,icolor,acolor,action = None):
     mouse = pygame.mouse.get_pos()
@@ -560,6 +597,101 @@ def unlock():
 
         pygame.display.update()
         clock.tick(60)
+
+def password():
+    global loop
+    loop = True
+    global loss
+    clickcounter = 0
+    win = False
+    passwordValues = []
+    passwordAnswer = []
+    AnswerSize = 5
+    Acertos = []
+    clicked = False
+    click = pygame.mouse.get_pressed()
+    for x in range(AnswerSize):
+        passwordValues.append(random.randint(1,4))
+    for x in passwordValues:
+        print(x)
+    respIniPosX = display_width*0.20
+    respIniPosY = display_height*0.25
+    respFimPosX = display_width*0.25
+    respFimPosY = display_height*0.50
+    resp = []
+    #pygame.mixer.Sound.stop(rain_sound)
+    #pygame.mixer.Sound.stop(menu_sound)
+    global pause
+    while loop:
+        click = pygame.mouse.get_pressed()
+        if click[0] == 0:
+            clicked = False
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                game_quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_p or event.key == pygame.K_ESCAPE:
+                    pause = True
+                    paused()
+                if event.key == pygame.K_l:
+                    loop = False
+        image(woodbkgnd,0,0)
+        image(answerBox,display_width*0.05,display_height*0.4)
+        if imageButton(display_width*0.20,display_height*0.15,50,50,simbol1Dark,simbol1Bright,1) != None and clicked == False and len(passwordAnswer) < AnswerSize:
+            clicked = True
+            passwordAnswer.append(1)
+        if imageButton(display_width*0.25,display_height*0.15,50,50,simbol2Dark,simbol2Bright,2) != None and clicked == False and len(passwordAnswer) < AnswerSize:
+            passwordAnswer.append(2)
+            clicked = True
+        if imageButton(display_width*0.30,display_height*0.15,50,50,simbol3Dark,simbol3Bright,3) != None and clicked == False and len(passwordAnswer) < AnswerSize:
+            passwordAnswer.append(3)
+            clicked = True
+        if imageButton(display_width*0.35,display_height*0.15,50,50,simbol4Dark,simbol4Bright,4) != None and clicked == False and len(passwordAnswer) < AnswerSize:
+            passwordAnswer.append(4)
+            clicked = True
+        for x in range(AnswerSize):
+            image(simbolBox,respIniPosX-5 + (display_width*(x)*0.1)/2,respIniPosY-5)
+            if x <= len(passwordAnswer)-1 and len(passwordAnswer) != 0:
+                if passwordAnswer[x] == 1:
+                    image(simbol1Bright,respIniPosX + (display_width*(x)*0.1)/2,respIniPosY)
+                if passwordAnswer[x] == 2:
+                    image(simbol2Bright,respIniPosX + (display_width*(x)*0.1)/2,respIniPosY)
+                if passwordAnswer[x] == 3:
+                    image(simbol3Bright,respIniPosX + (display_width*(x)*0.1)/2,respIniPosY)
+                if passwordAnswer[x] == 4:
+                    image(simbol4Bright,respIniPosX + (display_width*(x)*0.1)/2,respIniPosY)
+        if imageButton(display_width*0.80,display_height*0.10,140,70,checkButtonDark,checkButtonBright,0) != None and clicked == False and len(passwordAnswer) == AnswerSize:
+            clicked = True
+            clickcounter = clickcounter + 1
+            if (passwordAnswer == passwordValues):
+                runwin()
+            else:
+                resp = []
+                entered = False
+                Acertos = [[passwordValues[i] == passwordAnswer[j] for j in range(0, len(passwordAnswer))] for i in range(0, len(passwordValues))]
+            for index,valor in enumerate(Acertos):
+                if(valor[index]):
+                    resp.append(1)
+                else:
+                    for x in valor:
+                        if(x and entered == False):
+                            entered = True
+                            resp.append(2)
+                    entered = False
+            passwordAnswer = []
+        for index,i in enumerate(resp):
+            if(i == 1):
+                pygame.draw.rect(gameDisplay,green,(respFimPosX*(index+1)/2,respFimPosY*((index+5)//5),50,50))
+            elif(i == 2):
+                pygame.draw.rect(gameDisplay,yellow,(respFimPosX*(index+1)/2,respFimPosY*((index+5)//5),50,50))
+        if imageButton(display_width*0.80,display_height*0.25,140,70,resetButtonDark,resetButtonBright,0) != None and clicked == False:
+            clicked = True
+            passwordAnswer = []  
+    
+        points("Tentativa: ",clickcounter,white)
+        pygame.display.update()
+        clock.tick(60)
+
 
 def runwin():
     global ruwin
