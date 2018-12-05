@@ -1,5 +1,5 @@
 import pygame
-from Script.NPC import *
+from NPC import *
 
 pygame.init()
 

@@ -4,16 +4,18 @@ from Script.ScriptColors import *
 from Script.Texturas import *
 from Script.Globals import *
 from Mapa_engine import *
-from Script.NPC import *
+from NPC import *
 from Player import *
 from meloonatic_gui import *
 from game import *
+from Timer import *
 #from Script.funcionalidades import *
 #from Script.run import RunPuzzle
 #from Script.Unlock import unlock
 
 
 pygame.init()
+
 
 cSeg = 0
 cFrame = 0
@@ -109,6 +111,11 @@ player_w, player_h = player.width, player.height
 player_x = (window_width / 2 - player_w / 2 - Globals.camera_x) / Tiles.Size
 player_y = (window_height / 2 - player_h / 2 - Globals.camera_y) / Tiles.Size
 
+# NPCs
+father = Male1(name = "Steve", pos = (200, 300), image = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/pai.png"), dialog = Dialog(text =  [("Hello son!", "Fine?")]))
+daughter = Male1(name = "Anne", pos = (150, 150), image = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/irma.png"), dialog = Dialog(text =  [("I am looking for my doll", " (T-T)")]))
+# /NPC
+
 
 #Initialize GUI
 def Play():
@@ -129,7 +136,7 @@ logo = Menu.Image(bitmap = logo_img)
 Aberto = True
 
 while Aberto:
-
+    print(Globals.camera_x,Globals.camera_y)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Aberto = False
@@ -157,6 +164,48 @@ while Aberto:
                 player.pressed = True
                 Globals.camera_move = 4
                 player.facing = "west"
+
+            if event.key == pygame.K_RETURN:
+                if Globals.dialog_open:
+                    #HANDLE NEXT PAGE OF OPEN DIALOG
+                    if Globals.active_dialog.Page < len(Globals.active_dialog.Text) - 1:
+                        Globals.active_dialog.Page += 1
+                    else:
+                        Globals.dialog_open = False
+                        Globals.active_dialog.Page = 0
+                        Globals.active_dialog = None
+                else:
+                    #IF DIALOG ISNT OPEN
+                    for npc in NPC.AllNPCs:
+                        #IS A PLAYER IN SPEECH BOUNDS
+                        #PLAYER COORDS ARE BY TILE!!!
+                        #NPC COORDS ARE BY PIXEL!!!
+                        #THIS CAUSES CONFUSION!!!
+                        npc_x = npc.X / Tiles.Size
+                        npc_y = npc.X / Tiles.Size
+                        print (npc_y,player_y)
+                        if player_x >= npc_x- 2 and player_x <= npc_x + 2 and  player_y >= npc_y - 2 and player_y <= npc_y + 2:
+                            #PLAYER IS NEXT TO AN NPX, HOWEVER IS PLAYER FACING NPC?
+                            if player.facing == "north" and npc_y < player_y:
+                                Globals.dialog_open = True
+                                Globals.active_dialog = npc.Dialog
+                                npc.Timer.Pause()
+                                npc.walking = True
+                            elif player.facing == "south" and npc_y > player_y:
+                                Globals.dialog_open = True
+                                Globals.active_dialog = npc.Dialog
+                                npc.Timer.Pause()
+                                npc.walking = True 
+                            elif player.facing  == "east" and npc_x < player_x:
+                                Globals.dialog_open = True
+                                Globals.active_dialog = npc.Dialog
+                                npc.Timer.Pause()
+                                npc.walking = True 
+                            elif player.facing == "west" and npc_x > player_x:
+                                Globals.dialog_open = True
+                                Globals.active_dialog = npc.Dialog
+                                npc.Timer.Pause()
+                                npc.walking = True
 
         elif event.type == pygame.KEYUP:
             Globals.camera_move = 0
@@ -222,6 +271,7 @@ while Aberto:
                 player.pressed = False
                 Globals.camera_x = -428.869
                 Globals.camera_y = -195.393
+                Globals.camera_move = 0
                 player.facing = "east"
 
             if Tiles.Descer((round(player_x), math.floor(player_y))):
@@ -234,14 +284,17 @@ while Aberto:
                 RunPuzzle()
                 player.vida(perda())
                 Globals.camera_x = 493
+                Globals.camera_y = -81
                 Globals.camera_move = 0
                 player.pressed = False
+
             if Tiles.destrancar((round(player_x), math.floor(player_y))):
-                Globals.camera_y = -142
-                Globals.camera_move = 0
                 player.pressed = False
                 unlock()
                 player.vida(perda())
+                Globals.camera_y = -142
+                Globals.camera_x = 379
+                Globals.camera_move = 0
                 
 
 
@@ -273,6 +326,7 @@ while Aberto:
                 player.pressed = False
                 Globals.camera_x = -428.869
                 Globals.camera_y = -195.393
+                Globals.camera_move = 0
                 player.facing = "east"
 
             if Tiles.Descer((round(player_x), math.ceil(player_y))):
@@ -286,12 +340,14 @@ while Aberto:
                 Globals.camera_x = 493
                 Globals.camera_move = 0
                 player.pressed = False
+
             if Tiles.destrancar((round(player_x), math.ceil(player_y))):
-                Globals.camera_y = -142
-                Globals.camera_move = 0
                 player.pressed = False
                 unlock()
                 player.vida(perda())
+                Globals.camera_y = -142
+                Globals.camera_x = 379
+                Globals.camera_move = 0
 
         elif Globals.camera_move == 3:
             if not Tiles.Blocked_At((math.floor(player_x), round(player_y))) and player.pressed == True:
@@ -320,6 +376,7 @@ while Aberto:
                 player.pressed = False
                 Globals.camera_x = -428.869
                 Globals.camera_y = -195.393
+                Globals.camera_move = 0
                 player.facing = "east"
             
             if Tiles.Descer((math.floor(player_x), round(player_y))):
@@ -333,8 +390,10 @@ while Aberto:
                 Globals.camera_x = 493
                 Globals.camera_move = 0
                 player.pressed = False
+
             if Tiles.destrancar((math.floor(player_x), round(player_y))):
                 Globals.camera_y = -142
+                Globals.camera_x = 379
                 Globals.camera_move = 0
                 player.pressed = False
                 unlock()
@@ -367,6 +426,7 @@ while Aberto:
                 password()
                 Globals.camera_x = -428.869
                 Globals.camera_y = -195.393
+                Globals.camera_move = 0
                 player.pressed = False
                 player.facing = "east"
             
@@ -375,15 +435,17 @@ while Aberto:
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
-            if Tiles.fugir((math.floor(player_x), round(player_y))):
+
+            if Tiles.fugir((math.ceil(player_x), round(player_y))):
                 RunPuzzle()
                 player.vida(perda())
                 Globals.camera_x = 493
                 Globals.camera_move = 0
                 player.pressed = False
 
-            if Tiles.destrancar((math.floor(player_x), round(player_y))):
+            if Tiles.destrancar((math.ceil(player_x), round(player_y))):
                 Globals.camera_y = -142
+                Globals.camera_x = 379
                 Globals.camera_move = 0
                 player.pressed = False
                 unlock()
@@ -417,13 +479,19 @@ while Aberto:
             vida[5] = scale(vida[5],int(display_width*0.1),int(display_height*0.15))
             image(vida[5],display_width*0.85,display_height*0.8)
     #RENDERIZAÇAO GRAFICA - SIMPLES TERRENO
+
+    #RENDER NPC
+        for npc in NPC.AllNPCs:
+            npc.Render(window)
     
     #Render Menu Scene
     elif Globals.scene == "menu":
         window.fill(Color.Fog)
         logo.Render(window)
         message_display("Ilusões",blue)
-        Globals.camera_x, Globals.camera_y = 0,0
+        Globals.camera_x = 244.37
+        Globals.camera_y = 126.23
+        player.facing = "east"
         if x//10 == 12:
             x = 0
         

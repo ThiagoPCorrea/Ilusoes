@@ -1,8 +1,9 @@
 import pygame, random
 from Timer import *
-from Globals import *
-from Texturas import *
+from Script.Globals import *
+from Script.Texturas import *
 
+import pygame
 pygame.init()
 anicounter = 0
 
@@ -98,9 +99,9 @@ class NPC:
     def Render(self, surface):
         self.Timer.Update()
         if self.walking:
-            move_speed = 0 * (Globals.deltatime)
+            move_speed = 0 * Globals.deltatime
             if self.facing == "south":
-                self.Y += move_speed
+                self.Y +=move_speed
             elif self.facing == "north":
                 self.Y -= move_speed
             elif self.facing == "east":
