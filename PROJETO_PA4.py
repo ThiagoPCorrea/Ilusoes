@@ -9,6 +9,7 @@ from Player import *
 from meloonatic_gui import *
 from game import *
 from Timer import *
+from NPCcc import *
 #from Script.funcionalidades import *
 #from Script.run import RunPuzzle
 #from Script.Unlock import unlock
@@ -73,6 +74,14 @@ x = 0
 
 window_height, window_width = 0, 0
 
+#dialog
+dialog_background = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/gui/dialog1.png")
+Dialog_Background = pygame.Surface(dialog_background.get_size(), pygame.HWSURFACE|pygame.SRCALPHA)
+Dialog_Background.blit(dialog_background, (0, 0))
+Dialog_Background_Width, Dialog_Background_Height = Dialog_Background.get_size()
+del dialog_background
+#/dialog
+
 def show_fps():
     fps_overlay = fps_font.render(str(FPS), True, Color.White)
     window.blit(fps_overlay, (0, 0))
@@ -112,8 +121,8 @@ player_x = (window_width / 2 - player_w / 2 - Globals.camera_x) / Tiles.Size
 player_y = (window_height / 2 - player_h / 2 - Globals.camera_y) / Tiles.Size
 
 # NPCs
-father = Male1(name = "Steve", pos = (200, 300), image = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/pai.png"), dialog = Dialog(text =  [("Hello son!", "Fine?")]))
-daughter = Male1(name = "Anne", pos = (150, 150), image = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/irma.png"), dialog = Dialog(text =  [("I am looking for my doll", " (T-T)")]))
+father = Male1(name = "Steve", pos = (125 , 180), image = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/ppp.png"), dialog = Dialog(text =  [("Hello", "Fine?")]))
+daughter = Male1(name = "Anne", pos = (250, 100), image = pygame.image.load("C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Personagens/anne.png"), dialog = Dialog(text =  [("hi you", " :)")]))
 # /NPC
 
 
@@ -136,7 +145,7 @@ logo = Menu.Image(bitmap = logo_img)
 Aberto = True
 
 while Aberto:
-    print(Globals.camera_x,Globals.camera_y)
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             Aberto = False
@@ -145,22 +154,22 @@ while Aberto:
             if event.key == pygame.K_ESCAPE:
                 Aberto = False
 
-            if event.key == pygame.K_w or event.key == pygame.K_UP:
+            if event.key == pygame.K_w or event.key == pygame.K_UP and not Globals.dialog_open:
                 player.pressed = True
                 Globals.camera_move = 1
                 player.facing = "north"
 
-            elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_s or event.key == pygame.K_DOWN and not Globals.dialog_open:
                 player.pressed = True
                 Globals.camera_move = 2
                 player.facing = "south"
 
-            elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
+            elif event.key == pygame.K_a or event.key == pygame.K_LEFT and not Globals.dialog_open:
                 player.pressed = True
                 Globals.camera_move = 3
                 player.facing = "east"
 
-            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_d or event.key == pygame.K_RIGHT and not Globals.dialog_open:
                 player.pressed = True
                 Globals.camera_move = 4
                 player.facing = "west"
@@ -482,7 +491,26 @@ while Aberto:
 
     #RENDER NPC
         for npc in NPC.AllNPCs:
+
             npc.Render(window)
+        #for t in Tiles.Blocked:
+          #pygame.draw.rect(window, Color.Red, (t[0] * Tiles.Size + Globals.camera_x, t[1] * Tiles.Size + Globals.camera_y, Tiles.Size, Tiles.Size), 2)
+
+     #DIALOG
+        if Globals.dialog_open:
+            window.blit(Dialog_Background, (window_width / 2 - Dialog_Background_Width / 2, window_height - Dialog_Background_Height - 2))
+
+            #Draw Dialogs Texts
+        
+            if Globals.active_dialog != None:
+                lines = Globals.active_dialog.Text[Globals.active_dialog.Page]
+
+                for line in lines:
+                    #Draw Text to Screen
+                    window.blit(Font.Default.render(line, True, Color.Black), (400, (window_height - Dialog_Background_Height) + 30 + (lines.index(line)) * 30))
+
+        #/DIALOG
+
     
     #Render Menu Scene
     elif Globals.scene == "menu":

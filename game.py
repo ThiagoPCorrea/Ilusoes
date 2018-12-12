@@ -142,26 +142,26 @@ winimg.append(winimg12)
 winimg.append(winimg13)
 
 #PassWord Button
-simbol1Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button1Bright.png')
-simbol1Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button1Dark.png')
+simbol1Bright = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button1Bright.png')
+simbol1Dark = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button1Dark.png')
 
-simbol2Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button2Bright.png')
-simbol2Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button2Dark.png')
+simbol2Bright = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button2Bright.png')
+simbol2Dark = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button2Dark.png')
 
-simbol3Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button3Bright.png')
-simbol3Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button3Dark.png')
+simbol3Bright = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button3Bright.png')
+simbol3Dark = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button3Dark.png')
 
-simbol4Bright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button4Bright.png')
-simbol4Dark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/Button4Dark.png')
+simbol4Bright = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button4Bright.png')
+simbol4Dark = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/Button4Dark.png')
 
-simbolBox = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/SimbolBox.png')
-answerBox = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/SimbolBox.png')
-answerRound = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/SimbolBox.png')
+simbolBox = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/SimbolBox.png')
+answerBox = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/SimbolBox.png')
+answerRound = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/SimbolBox.png')
 
-checkButtonBright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/checkblockBright.jpg')
-resetButtonBright = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/resetblockBright.jpg')
-checkButtonDark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/checkblockDark.jpg')
-resetButtonDark = pygame.image.load('C:/Users/thiag/Documents/Thiago/Projeto PA4/Simbols/resetblockDark.jpg')
+checkButtonBright = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/checkblockBright.jpg')
+resetButtonBright = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/resetblockBright.jpg')
+checkButtonDark = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/checkblockDark.jpg')
+resetButtonDark = pygame.image.load('C:/Users/thiag/Documents/GitHub/Ilusoes/graphics/Puzzles/Simbols/resetblockDark.jpg')
 
 
 #Sons
