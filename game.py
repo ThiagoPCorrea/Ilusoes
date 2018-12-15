@@ -752,9 +752,9 @@ def RunPuzzle():
                 game_quit()
             #movimentação   
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a :
                     x_change = -5
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     x_change = 5
                 #if event.key == pygame.K_UP:
                 #    y_change = -5
@@ -768,7 +768,7 @@ def RunPuzzle():
                     paused()
                     
             if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_a or event.key == pygame.K_d :
                     x_change = 0
                 if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                     y_change = 0

@@ -40,6 +40,7 @@ vida.append(vida6)
 
 
 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
+terrainValue = 1
 
 fps_font = pygame.font.Font("C:\\Windows\\Fonts\\Verdana.ttf", 20)
 clock = pygame.time.Clock()
@@ -262,18 +263,21 @@ while Aberto:
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "east"
-            
+                terrainValue = 0
+
             if Tiles.left((round(player_x), math.floor(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Rua.map")
                 Globals.camera_x = -86.78
                 Globals.camera_y = 131.034
                 player.facing = "south"
+                terrainValue = 0
             
             if Tiles.enter((round(player_x), math.floor(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -146.26
                 Globals.camera_y = -364.81
                 player.facing = "north"
+                terrainValue = 1
             
             if Tiles.senha((round(player_x), math.floor(player_y))):
                 password()
@@ -288,6 +292,7 @@ while Aberto:
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
+                terrainValue = 1
             
             if Tiles.fugir((round(player_x), math.floor(player_y))):
                 RunPuzzle()
@@ -317,18 +322,21 @@ while Aberto:
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "west"
+                terrainValue = 0
             
             if Tiles.left((round(player_x), math.ceil(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Rua.map")
                 Globals.camera_x = -86.78
                 Globals.camera_y = 131.034
                 player.facing = "south"
+                terrainValue = 0
             
             if Tiles.enter((round(player_x), math.ceil(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -146.26
                 Globals.camera_y = -364.81
                 player.facing = "north"
+                terrainValue = 1
             
             if Tiles.senha((round(player_x), math.ceil(player_y))):
                 password()
@@ -343,6 +351,8 @@ while Aberto:
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
+                terrainValue = 1
+
             if Tiles.fugir((round(player_x), math.ceil(player_y))):
                 RunPuzzle()
                 player.vida(perda())
@@ -367,18 +377,21 @@ while Aberto:
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "east"
+                terrainValue = 0
 
             if Tiles.left((math.floor(player_x), round(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Rua.map")
                 Globals.camera_x = -86.78
                 Globals.camera_y = 131.034
                 player.facing = "south"
+                terrainValue = 0
             
             if Tiles.enter((math.floor(player_x), round(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -146.26
                 Globals.camera_y = -364.81
                 player.facing = "north"
+                terrainValue = 1
             
             if Tiles.senha((math.floor(player_x), round(player_y))):
                 password()
@@ -393,6 +406,8 @@ while Aberto:
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
+                terrainValue = 1
+
             if Tiles.fugir((math.floor(player_x), round(player_y))):
                 RunPuzzle()
                 player.vida(perda())
@@ -418,18 +433,21 @@ while Aberto:
                 Globals.camera_x = -863.57
                 Globals.camera_y = -88.2
                 player.facing = "east"
+                terrainValue = 0
             
             if Tiles.left((math.ceil(player_x), round(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Rua.map")
                 Globals.camera_x = -86.78
                 Globals.camera_y = 131.034
                 player.facing = "south"
+                terrainValue = 0
             
             if Tiles.enter((math.ceil(player_x), round(player_y))):
                 terrain = Map_engine.load_map("C:/Users/thiag/Documents/GitHub/Ilusoes/Mapa/Sala.map")
                 Globals.camera_x = -146.26
                 Globals.camera_y = -364.81
                 player.facing = "north"
+                terrainValue = 1
             
             if Tiles.senha((math.ceil(player_x), round(player_y))):
                 password()
@@ -444,6 +462,7 @@ while Aberto:
                 Globals.camera_x = -436.3
                 Globals.camera_y = -171.42
                 player.facing = "south"
+                terrainValue = 1
 
             if Tiles.fugir((math.ceil(player_x), round(player_y))):
                 RunPuzzle()
@@ -491,8 +510,8 @@ while Aberto:
 
     #RENDER NPC
         for npc in NPC.AllNPCs:
-
-            npc.Render(window)
+            if terrainValue == 1 :
+                npc.Render(window)
         #for t in Tiles.Blocked:
           #pygame.draw.rect(window, Color.Red, (t[0] * Tiles.Size + Globals.camera_x, t[1] * Tiles.Size + Globals.camera_y, Tiles.Size, Tiles.Size), 2)
 
